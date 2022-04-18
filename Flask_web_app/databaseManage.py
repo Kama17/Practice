@@ -17,7 +17,7 @@ class DBManage():
 	def __init__(self):
 
 		self.db_path = r'database\db.db'
-		self.WIP_path = r"\\ad.numatic.co.uk\group\Operations\Production Assembly\Metal Shop\Supply_sheet_all_departments\Supply All Departments.csv"
+		self.WIP_path = r"Supply All Departments.csv"
 		self.weekly_supply_db_path = r'database\weekly_supply.db'
 
 	def updateWIPTable(self):
