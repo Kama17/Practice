@@ -22,7 +22,7 @@ def dict_factory(cursor, row):
         d[col[0]] = row[idx]
     return d
 
-WIP_path = (r'\\ad.numatic.co.uk\group\Operations\Production Assembly\Metal Shop\Supply_sheet_all_departments\Supply All Departments.csv')
+WIP_path = (r'Supply All Departments.csv')
 #weekly_supply_db_path = create_engine(r'sqlite:///database\weekly_supply.db')
 weekly_supply_db_path = (r'database\weekly_supply.db')
 #db_path = create_engine(r'sqlite:///database\db.db')
