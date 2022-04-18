@@ -1,0 +1,81 @@
+	<div class="mt-2 container border border-4 rounded-2 bg-warning bg-opacity-25">
+		<div class="row p-2">
+			<div class="col border">
+				<h2 class="text-center">BOOK OUT</h2>
+
+				<form action="{{url_for('bookout',action = 'search')}}">
+					<div class="mt-2 input-group mb-3">
+
+						<span class="input-group-text" id="basic-addon1">Scan/Job</span>
+					 	<input name="job_no_book_out" type="text" class="form-control text-center" aria-label="scanJob" aria-describedby="basic-addon1" value = "" required="required" >
+						 <button button type="submit" class="btn btn-success">Search</button>
+
+					</div>
+				</form>
+
+				<form action="{{url_for('bookout', action = 'bookin_out')}}">
+
+					<span class="input-group-text" id="basic-addon1">Job</span>
+					 	<input name="no" type="text" class="form-control text-center" aria-label="scanJob" aria-describedby="basic-addon1" value = "{{data1_out}}"required="required">
+				
+
+				<div class="mt-2 input-group mb-3">
+			    <div class="input-group-prepend">
+
+			    <span class="input-group-text " id="">Part Number</span>
+			  	</div>
+
+			  		<input name = "no" type="text" class="form-control text-center" value="{{data2_out}}">  	
+			  		<span class="input-group-text " id="">Quantity</span>
+			  		<input name = "no" type="text" class="form-control text-center" value="{{data4_out}}">
+			  		<span class="input-group-text " id="">Week</span>
+			  		<input name = "no" type="text" class="form-control text-center" value="{{data0_out}}">
+				</div>
+
+				<div class="input-group mb-3">
+				    <span class="input-group-text">Description</span>
+				    <textarea name = "no" class="form-control text-center" aria-label="With textarea">{{data3_out}}</textarea>
+				</div>
+
+				<h4 class = "text-center">COMPLETION</h4>
+				<hr>
+				
+
+				{%if request.method == 'GET' %}
+
+					{% for rec_out in job_rec_book_out %}
+
+						{%  if rec_out[4] == 'In Progress'  %}
+										
+				    								
+								<div class="border border-secondary rounded">
+									<div class="input-group m-2">
+									<span class="input-group-text  rounded">ROUTING</span>
+									  <span name="job_bookout_routing" class="input-group-text bg-dark bg-gradient text-white me-2 rounded">{{rec_out[1]}}</span>
+									  <span class="input-group-text rounded">COMPLETE</span>
+									  <span class="input-group-text bg-dark bg-gradient text-white me-2 rounded">{{rec_out[2]}}</span>
+									
+									  <span class="input-group-text rounded">AVAILABLE</span>
+									  <span class="input-group-text bg-dark bg-gradient text-white rounded">{{rec_out[3] - rec_out[2]}}</span>
+									</div>
+									<hr>
+								<div class="input-group m-2">
+									<span class="input-group-text bg-secondary bg-gradient ms-1 rounded">ENTER QTY</span>
+									<input name="job_bookout_qty" type="number" aria-label="Last name" class="text-center ms-1 rounded" required="required" min="1" max="{{rec_out[3] - rec_out[2]}}">
+									
+								</div>
+
+							    <input type="hidden" style="width:5%" name="no_1" value = "{{rec_out[3] - rec_out[2]}}">
+							    <input type="hidden" style="width:5%" name="job_bookout_routing" value = "{{rec_out[1]}}">
+							    </div>			
+
+						{% endif %}
+				{% endfor %}
+				{%endif%}		
+
+	</div>
+
+	<div class="d-grid mt-3">
+		<button class="btn btn-primary" type="submit">Complete</button>
+	</div> 
+	</form>

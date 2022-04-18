@@ -1,0 +1,60 @@
+
+<table id="myTable" data-toggle="table" class="table table-dark table-hover">
+	  		 <thead>
+	  		 	
+	  		 	<tr class="text-center">
+	  		 	<th data-sortable="true">Week</th>
+	  		 	<th data-sortable="true">Job No.</th>
+	  		 	<th data-sortable="true">Part No.</th>
+	  		 	<th data-sortable="true">Description</th>
+	  		 	<th data-sortable="true">Qty</th>
+	  		 	<th data-sortable="true">Complete</th>
+	  		 	<th data-sortable="true">Status</th>
+	  		 	<th data-sortable="true">Stage</th>
+	  		 	</tr>
+
+	  		 </thead>
+
+
+
+
+	  		 <tbody>
+
+	  		 	<tr>
+	  		 	{%for i in file%}
+	  		 
+	  		 	<td class="text-center">{{i['WEEK_NUMBER']}}</td>
+	  		 	<td class="text-center">{{i['JOB_NUMBER']}}</td>
+	  		 	<td class="text-center">{{i['PART_NUMBER']}}</td>
+	  		 	<td class="text-center">{{i['PART_DESCRIPTION']}}</td>
+	  		 	<td class="text-center">{{i['QUANTITY']}}</td>
+	  		 	
+	  		 	
+	  		 	{%if i['COMPLETE'] == None%}
+	  		 	<td class="text-center">0</td>
+	  		 	{%else%}
+	  		 	{%if i['QUANTITY']|int > i['COMPLETE']|int > 0  and i['STATUS'] != 'In Progress'%}
+	  		 	<td class="text-center bg-danger">{{i['COMPLETE']}}</td>
+	  		 	{%else%}
+	  		 	<td class="text-center">{{i['COMPLETE']}}</td>
+	  		 	{%endif%}
+	  		 	
+	  		 	{%endif%}
+
+
+	  		 	{% if i['STATUS'] == 'In Progress' %}
+	  		 	<td class="bg-warning text-center" >{{i['STATUS']}}</td>
+	  		 	{% elif i['STATUS'] == 'Complete'%}
+	  		 	<td class="bg-success text-center" >{{i['STATUS']}}</td>
+	  		 	{%else%}
+	  		 	<td class="text-center"></td>
+	  		 	{%endif%}
+	  		 	<td class="text-center">{{i['ROUTING_CODE']}}</td>
+	  		 	</tr>
+	  		 			 
+	  		 	{%endfor%}
+
+	  		 </tbody>
+	  		 
+		</table>
+
