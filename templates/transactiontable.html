@@ -1,0 +1,35 @@
+
+<table id="myTable" data-toggle="table" class="table table-dark table-hover">
+	  		 <thead>
+	  		 	
+	  		 	<tr class="text-center">
+	  		 	<th class="text-center" data-sortable="true">Week</th>
+	  		 	<th class="text-center" data-sortable="true">Job Number</th>
+	  		 	<th class="text-center" data-sortable="true">Part Number</th>
+	  		 	<th class="text-center" data-sortable="true">Routing</th>
+	  		 	<th class="text-center" data-sortable="true">Quantity</th>
+	  		 	<th class="text-center"data-sortable="true">Date</th>
+	  		 	</tr>
+
+	  		 </thead>
+
+
+	  		 <tbody>
+
+	  		 	<tr>
+	  		 	{%for i in wip%}
+	  		 
+	  		 	<td class="text-center">{{i[0]}}</td>
+	  		 	<td class="text-center">{{i[1]}}</td>
+	  		 	<td class="text-center">{{i[2]}}</td>
+	  		 	<td class="text-center">{{i[3]}}</td>
+	  		 	<td class="text-center">{{i[4]}}</td>
+	  		 	<td class="text-center">{{i[5]}}</td>
+	  		 	</tr> 	
+	  			  		 			 
+	  		 	{%endfor%}
+
+	  		 </tbody>
+	  		 
+		</table>
+
