@@ -8,7 +8,7 @@ from databaseManage import  DBManage
 class bookIn():
 	def __init__(self):
 		#self.DBManage = DBManage().updateWIPTable()
-		self.path = r'C:\Users\2609\Desktop\MS\database\db.db'
+		self.path = r'database\db.db'
 		self.table_names = ['JOB_DETAILS','JOB_ROUTING']
 		self.conn = sql.connect(self.path) # connection string neet to be change
 		self.cur = self.conn.cursor()
