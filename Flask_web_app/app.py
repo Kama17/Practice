@@ -339,7 +339,7 @@ def trans():
 #webbrowser.open_new('http://127.0.0.1:5000')
 
 if __name__ == '__main__':
-	webbrowser.open('http://127.0.0.1:5000', new = 2)
+	#webbrowser.open('http://127.0.0.1:5000', new = 2)
 	app.run(debug = True,threaded=True)
 	#serve(app, port = 5000)
 #shutdown_func = request.environ.get('werkzeug.server.shutdown')
